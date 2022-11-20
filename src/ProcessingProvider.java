@@ -2,7 +2,7 @@ public class ProcessingProvider {
     public static void brutalForce(
         String stringToProcess, String pattern
     ) {
-        int patternsFound = 0, comparsionsQuantity = 1;
+        int patternsFound = 0, comparsionsQuantity = 0;
         int patternLength = pattern.length();
 
         for(
@@ -13,8 +13,9 @@ public class ProcessingProvider {
             for(
                 int paternIndex=0 ;
                 paternIndex < patternLength
-                ; paternIndex++, comparsionsQuantity++
+                ; paternIndex++
             ) {
+                comparsionsQuantity++;
                 char stringChar = stringToProcess.charAt(stringIndex + paternIndex);
                 char patternChar = pattern.charAt(paternIndex);
 
@@ -47,13 +48,17 @@ public class ProcessingProvider {
         String stringToProcess, String pattern
     ) {
         int prefixTable[] = getKMPPrefixTable(pattern);
-        int patternsFound = 0, comparsionsQuantity = 1;
+        int patternsFound = 0, comparsionsQuantity = 0;
 
         for(
             int stringIndex=0, patternIndex=0 ;
-            stillNeedsToComparePattern(stringToProcess, stringIndex, pattern) ;
-            stringIndex++, comparsionsQuantity++
+            stillNeedsToComparePattern(
+                stringToProcess, stringIndex,
+                pattern, patternIndex
+            ) ;
+            stringIndex++
         ) {
+            comparsionsQuantity++;
             char stringChar = stringToProcess.charAt(stringIndex);
             char patternChar = pattern.charAt(patternIndex);
 
@@ -83,6 +88,16 @@ public class ProcessingProvider {
         }
 
         System.out.println("Quantidade de padrões encontados: " + patternsFound);
+    }
+
+    private static boolean stillNeedsToComparePattern(
+        String stringToProcess, int stringIndex,
+        String pattern, int patternIndex
+    ) {
+        int stringLength = stringToProcess.length();
+        int patternLength = pattern.length();
+
+        return (stringIndex - patternIndex) <= (stringLength - patternLength);
     }
 
     private static int[] getKMPPrefixTable(String pattern) {
