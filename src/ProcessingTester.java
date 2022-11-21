@@ -18,7 +18,7 @@ public class ProcessingTester {
             for (String patternToSearch : PATTERNS_TO_SEARCH) {
                 System.out.println("Padrão: " + patternToSearch);
                 
-                System.out.println("Resultados Força Bruta:\n");
+                System.out.println("\nResultados Força Bruta:\n");
                 ProcessingProvider.brutalForce(fileString, patternToSearch);
 
                 System.out.println("\nResultados KMP:\n");
