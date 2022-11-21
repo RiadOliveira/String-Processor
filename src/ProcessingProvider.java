@@ -25,14 +25,14 @@ public class ProcessingProvider {
 
                 System.out.println(
                     "Foram feitas " + comparsionsQuantity +
-                    " comparações para encontrar o " + patternsFound +
-                    "º padrão."
+                    " comparações para encontrar a " + patternsFound +
+                    "ª ocorrência."
                 );
                 comparsionsQuantity = 0;
             }
         }
 
-        System.out.println("Quantidade de padrões encontados: " + patternsFound);
+        System.out.println("Quantidade de ocorrências encontadas: " + patternsFound);
     }
 
     private static boolean stillNeedsToComparePattern(
@@ -81,13 +81,13 @@ public class ProcessingProvider {
 
             System.out.println(
                 "Foram feitas " + comparsionsQuantity +
-                " comparações para encontrar o " + patternsFound +
-                "º padrão."
+                " comparações para encontrar a " + patternsFound +
+                "ª ocorrência"
             );
             comparsionsQuantity = 0;
         }
 
-        System.out.println("Quantidade de padrões encontados: " + patternsFound);
+        System.out.println("Quantidade de ocorrências encontadas: " + patternsFound);
     }
 
     private static boolean stillNeedsToComparePattern(
